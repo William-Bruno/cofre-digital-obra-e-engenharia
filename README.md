@@ -11,6 +11,11 @@ API desenvolvida em FastAPI
     └── main.py        # Ponto de entrada da aplicação
 
 ## Instalação
+    Clone o repositório e instale as dependências
+    Criar uma venv
+    Ativar .\venv\Scripts\activate
+    Install FastAPI
+
 
 ## Executando a aplicação
     $env:PYTHONPATH="src" 
