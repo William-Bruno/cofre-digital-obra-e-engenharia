@@ -1,0 +1,19 @@
+[
+  {
+    "categoria": "string",
+    "descricao": "string",
+    "obra": "string",
+    "etapa": "string",
+    "responsavel_tecnico": "string",
+    "versao": 3.0,
+    "data": "string",
+    "id": 1,
+    "nome_original": "Copilot_20260831_093333.png",
+    "nome_armazenado": "1_20260902110659_Copilot_20260831_093333.png",
+    "extensao": "png",
+    "tipo_mime": "image/png",
+    "tamanho": 913542,
+    "sha256": "73067045d201ed473fd4e2dd5043268af6374e7d46317a5e0dd387f6d3ac01e7",
+    "data_upload": "2026-09-02 11-06-59"
+  }
+]

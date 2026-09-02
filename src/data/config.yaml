@@ -1,0 +1,12 @@
+paths:
+  bd_path: "src/storage/metadados/documents.json"
+  export_path: "src/storage/exports/documents.csv"
+  files_path: "src/storage/files"
+
+settings:
+  chunk_size: 1048576
+  timestamp_format: "%Y%m%d%H%M%S"
+  upload_date_format: "%Y-%m-%d %H-%M-%S"
+  max_upload_size: 10485760
+
+  

@@ -1,0 +1,148 @@
+from pathlib import Path
+from datetime import datetime
+import mimetypes
+import hashlib
+from fastapi import HTTPException, UploadFile
+from fastapi.responses import FileResponse
+
+from data.config_loader import config
+from data.document import read_documents, write_documents, export_document
+from src.model.document import Documents, DocumentCreate, DocumentUpdate
+
+
+FILES_PATH = Path(config["paths"]["files_path"])
+
+CHUNK_SIZE = config["settings"]["chunk_size"]
+TIMESTAMP_FORMAT = config["settings"]["timestamp_format"]
+UPLOAD_DATE_FORMATE = config["settings"]["upload_date_format"]
+MAX_UPLOAD_SIZE = config["settings"]["max_upload_size"]
+
+
+def calculate_sha256(file_path: Path) -> str:
+    sha256 = hashlib.sha256()
+    try:
+        with open(file_path, "rb") as file:
+            while chunk := file.read(1024 * 1024):
+                sha256.update(chunk)
+        return sha256.hexdigest()
+    except(OSError, IOError) as error:
+        raise HTTPException(status_code=500, detail=f"Problema ao calcular o hash256 {error}")
+
+
+
+async def save_documents(arquivo: UploadFile, document_id: int,) -> dict:
+
+    if not arquivo.filename:
+        raise HTTPException(status_code=400, detail="Arquivo não possui nome")
+
+    FILES_PATH.mkdir(parents=True, exist_ok=True)
+    nome_original = Path(arquivo.filename).name
+    extensao = Path(nome_original).suffix.lower().replace(".", "")
+    mime_type = arquivo.content_type or mimetypes.guess_type(nome_original[0]) or "application/octet-stream"
+    timestamp = datetime.now().strftime(TIMESTAMP_FORMAT)
+    nome_armazenado = f"{document_id}_{timestamp}_{nome_original}"
+    arquivo_local = FILES_PATH / nome_armazenado
+
+    tamanho_arquivo = 0
+    with open(arquivo_local, "wb") as destino:
+        while chunk := await arquivo.read(CHUNK_SIZE):
+            tamanho_arquivo += len(chunk)
+            if tamanho_arquivo > MAX_UPLOAD_SIZE:
+                raise HTTPException(status_code=413, detail="Arquivo enviado é muito grande: MAX 10Mb")
+            destino.write(chunk)
+    # tamanho = arquivo_local.stat().st_size
+    sha256 = calculate_sha256(arquivo_local)
+
+    return{
+        "nome_original": nome_original,
+        "nome_armazenado": nome_armazenado,
+        "extensao": extensao,
+        "tipo_mime": mime_type,
+        "tamanho": tamanho_arquivo,
+        "sha256": sha256,
+    }
+
+async def create_document(document: DocumentCreate, arquivo: UploadFile | None = None) -> Documents:
+    documents = read_documents()
+    document_id = max([doc["id"] for doc in documents], default=0) + 1
+
+    new_document = Documents(
+        id=document_id,
+        **document.model_dump(),
+        data_upload=datetime.now().strftime(UPLOAD_DATE_FORMATE),
+    )
+
+    if arquivo is not None:
+        file_data = await save_documents(arquivo=arquivo, document_id=document_id)
+        new_document = new_document.model_copy(update=file_data)
+    documents.append(new_document.model_dump())
+    write_documents(documents)
+    return new_document
+
+async def update_document(id: int, document:DocumentUpdate, arquivo: UploadFile | None = None) -> Documents:
+    documents = read_documents()
+    for indice, document_update in enumerate(documents):
+        if document_update.get("id") != id:
+            continue
+
+        updates = document.model_dump(exclude_unset=True)
+
+        for field, value in updates.items():
+            if value is not None:
+                document_update[field] = value
+
+        if arquivo is not None:
+            nome_arquivo_antigo = document_update.get("nome_armazenado")
+            file_data = await save_documents(arquivo=arquivo, document_id=id,)
+            document_update.update(file_data)
+
+            if nome_arquivo_antigo:
+                arquivo_antigo = (FILES_PATH / nome_arquivo_antigo)
+                if arquivo_antigo.exists():
+                    arquivo_antigo.unlink()
+
+        documents[indice] = document_update
+        write_documents(documents)
+        return Documents(**document_update)
+    raise HTTPException(status_code=404, detail=f"Documento com identificador {id} não foi encontrado.")
+
+def delete_document(id: int) -> FileResponse:
+    documents = read_documents()
+    for indice, document in enumerate(documents):
+        if document.get("id") != id:
+            continue
+        deleted_document = documents.pop(indice)    
+        write_documents(documents)
+
+        nome_armazenado = deleted_document.get("nome_armazenado")
+        if nome_armazenado:
+            arquivo_local = FILES_PATH / nome_armazenado
+            if arquivo_local.exists():
+                arquivo_local.unlink()
+        return Documents(**deleted_document)
+    raise HTTPException(status_code=404, detail="Documento não encontrado!")
+
+def download_document(id: int) -> FileResponse:
+    documents = read_documents()
+    
+    for document in documents:
+        if document.get("id") == id:
+            nome_arquivo = document.get("nome_armazenado")
+            if not nome_arquivo:
+                raise HTTPException(status_code=404, detail="Nome do arquivo não encontrado no storage")
+            arquivo_local = FILES_PATH / nome_arquivo
+            if not arquivo_local.exists():
+                raise HTTPException(status_code=404, detail="Arquivo fisico não encontrado no storage")
+            return FileResponse(
+                path=arquivo_local, 
+                filename=document.get("nome_original", nome_arquivo),
+                media_type=document.get("tipo_mime", "application/octet-stream"),)
+    raise HTTPException(status_code=404, detail="Documento não encontrado")
+
+def export_document_csv() -> dict:
+    documents = read_documents()
+    export_path = export_document(documents)
+    return {
+        "message": "Exportação realizaca com sucesso!",
+        "arquivo": str(export_path)
+    }
