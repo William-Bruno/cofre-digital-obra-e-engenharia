@@ -1,8 +1,8 @@
 from typing import Annotated
 from fastapi import APIRouter, UploadFile, status, File, Depends
 from fastapi.responses import FileResponse
-from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade
-from service.document import (create_document, update_document, delete_document, download_document, export_document_csv, get_document_id, filter_document, statistics_document, verificar_integridade)
+from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade, IntegridadeGeral
+from service.document import (create_document, update_document, delete_document, download_document, export_document_csv, get_document_id, filter_document, statistics_document, verificar_integridade, verificar_integridade_geral)
 
 
 router = APIRouter(prefix= "/documents")
@@ -19,6 +19,10 @@ def get_documents(categoria:str | None = None, obra:str | None = None, etapa:str
 @router.get("/statistics", status_code=status.HTTP_200_OK, response_model=Statistics)
 def statistics_documents():
      return statistics_document()
+
+@router.get("/integridade", status_code=status.HTTP_200_OK, response_model=IntegridadeGeral)
+def verificar_geral():
+     return verificar_integridade_geral()
 
 @router.get("/{id}", status_code=status.HTTP_200_OK, response_model=Documents)
 def get_documents_id(id: int):

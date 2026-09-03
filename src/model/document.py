@@ -102,3 +102,9 @@ class Integridade(BaseModel):
     hash_original: str
     hash_atual:str
     integro: bool
+
+class IntegridadeGeral(BaseModel):
+    documentos_verificados: int
+    documentos_integros: int
+    documentos_alterados: int
+    arquivos_nao_localizados: int

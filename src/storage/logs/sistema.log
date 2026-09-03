@@ -139,3 +139,65 @@ responsavel_tecnico
 2026-09-03 20:15:49,499 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
 2026-09-03 20:15:49,779 - cofre_digital - INFO - GET /documents/3/integridade status=200
 2026-09-03 20:15:53,047 - cofre_digital - INFO - GET /documents/2/integridade status=200
+2026-09-03 20:27:04,484 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:28:39,539 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:28:42,824 - cofre_digital - INFO - GET /docs status=200
+2026-09-03 20:28:43,279 - cofre_digital - INFO - GET /openapi.json status=200
+2026-09-03 20:28:52,879 - cofre_digital - ERROR - GET /documents/integridade erro interno: 'hash256'
+2026-09-03 20:29:24,900 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:29:26,943 - cofre_digital - ERROR - GET /documents/integridade erro interno: 5 validation errors:
+  {'type': 'missing', 'loc': ('response', 'id'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'nome'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'hash_original'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'hash_atual'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'integro'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+
+  File "C:\Projetos Python\cofre_digital_engenharia\src\web\document.py", line 23, in verificar_geral
+    GET /documents/integridade
+2026-09-03 20:31:36,589 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:31:38,639 - cofre_digital - ERROR - GET /documents/integridade erro interno: 5 validation errors:
+  {'type': 'missing', 'loc': ('response', 'id'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'nome'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'hash_original'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'hash_atual'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'integro'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+
+  File "C:\Projetos Python\cofre_digital_engenharia\src\web\document.py", line 23, in verificar_geral
+    GET /documents/integridade
+2026-09-03 20:32:16,671 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:32:23,569 - cofre_digital - ERROR - GET /documents/integridade erro interno: 5 validation errors:
+  {'type': 'missing', 'loc': ('response', 'id'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'nome'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'hash_original'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'hash_atual'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+  {'type': 'missing', 'loc': ('response', 'integro'), 'msg': 'Field required', 'input': IntegridadeGeral(documentos_verificados=4, documentos_integros=3, documentos_alterados=1, arquivos_nao_localizados=0)}
+
+  File "C:\Projetos Python\cofre_digital_engenharia\src\web\document.py", line 23, in verificar_geral
+    GET /documents/integridade
+2026-09-03 20:33:09,348 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:33:11,291 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-03 20:34:43,961 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:35:54,764 - cofre_digital - ERROR - POST /documents erro interno: name 'calculate_sha256' is not defined
+2026-09-03 20:36:42,488 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:36:43,893 - cofre_digital - INFO - POST /documents status=201
+2026-09-03 20:38:03,333 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-03 20:38:31,120 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-03 20:38:32,986 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-03 20:38:42,440 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-03 20:38:47,476 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-03 20:38:59,599 - cofre_digital - INFO - GET /documents/statistics status=200
+2026-09-03 20:40:42,666 - cofre_digital - INFO - POST /documents status=201
+2026-09-03 20:40:49,176 - cofre_digital - INFO - GET /documents/statistics status=200
+2026-09-03 20:41:20,758 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 20:41:33,248 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 20:41:38,676 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 20:41:44,629 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 20:41:50,666 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 20:41:56,460 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 20:42:00,766 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 20:42:14,126 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 20:42:59,649 - cofre_digital - INFO - PATCH /documents/7 status=200
+2026-09-03 20:43:13,931 - cofre_digital - INFO - GET /documents/statistics status=200
+2026-09-03 20:43:19,560 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-03 20:43:29,494 - cofre_digital - INFO - GET /documents/export/csv status=200
+2026-09-03 20:43:47,109 - cofre_digital - INFO - GET /documents/7/integridade status=200

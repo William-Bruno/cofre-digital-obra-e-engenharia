@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse
 
 from core.config_loader import config
 from data.document import read_documents, write_documents, export_document
-from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade
+from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade, IntegridadeGeral
 
 
 FILES_PATH = Path(config["paths"]["files_path"])
@@ -56,7 +56,7 @@ async def save_documents(arquivo: UploadFile, document_id: int,) -> dict:
     except HTTPException:
         arquivo_local.unlink(missing_ok=True)
         raise
-    sha256 = calculate_sha256(arquivo_local)
+    sha256 = calculate_hash(arquivo_local)
 
     return{
         "nome_original": nome_original,
@@ -225,5 +225,33 @@ def verificar_integridade(id: int) -> Integridade:
         hash_atual = hash_atual,
         integro = integro
 )
+
+
+def verificar_integridade_geral() -> IntegridadeGeral:
+    documents = read_documents()
+    verificados = 0
+    integros = 0
+    alterados = 0
+    arquivos_nao_localizados = 0
+
+    for document in documents:
+        verificados += 1
+        arquivo_local = FILES_PATH / document['nome_armazenado']
+        if not arquivo_local.exists():
+            arquivos_nao_localizados += 1
+            continue
+        hash_atual = calculate_hash(arquivo_local)
+        if hash_atual == document['sha256']:
+            integros += 1
+        else:
+            alterados += 1
+
+    return IntegridadeGeral(
+        documentos_verificados=verificados,
+        documentos_integros=integros,
+        documentos_alterados=alterados,
+        arquivos_nao_localizados=arquivos_nao_localizados
+    )
+
 
 
