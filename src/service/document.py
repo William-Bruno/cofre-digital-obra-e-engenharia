@@ -44,15 +44,16 @@ async def save_documents(arquivo: UploadFile, document_id: int,) -> dict:
     arquivo_local = FILES_PATH / nome_armazenado
 
     tamanho_arquivo = 0
-    with open(arquivo_local, "wb") as destino:
-        while chunk := await arquivo.read(CHUNK_SIZE):
-            tamanho_arquivo += len(chunk)
-            if tamanho_arquivo > MAX_UPLOAD_SIZE:
-                destino.close()
-                arquivo_local.unlink(missing_ok=True)
-                raise HTTPException(status_code=413, detail="Arquivo enviado é muito grande: MAX 10Mb")
-            destino.write(chunk)
-    # tamanho = arquivo_local.stat().st_size
+    try:
+        with open(arquivo_local, "wb") as destino:
+            while chunk := await arquivo.read(CHUNK_SIZE):
+                tamanho_arquivo += len(chunk)
+                if tamanho_arquivo > MAX_UPLOAD_SIZE:
+                    raise HTTPException(status_code=413, detail="Arquivo enviado é muito grande: MAX 10Mb")
+                destino.write(chunk)
+    except HTTPException:
+        arquivo_local.unlink(missing_ok=True)
+        raise
     sha256 = calculate_sha256(arquivo_local)
 
     return{

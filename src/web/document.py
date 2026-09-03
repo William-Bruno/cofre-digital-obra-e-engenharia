@@ -20,7 +20,7 @@ def get_documents(categoria:str | None = None, obra:str | None = None, etapa:str
 def get_documents_id(id: int):
     return get_document_id(id)
 
-@router.put("/{id}", status_code=status.HTTP_200_OK, response_model=Documents)
+@router.patch("/{id}", status_code=status.HTTP_200_OK, response_model=Documents)
 async def update_documents(id: int, document: Annotated[DocumentUpdate, Depends(DocumentUpdate.as_form)], arquivo: UploadFile | None = File(None),):
     return await update_document(id, document, arquivo)
 
