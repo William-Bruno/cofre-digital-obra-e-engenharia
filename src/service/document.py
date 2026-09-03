@@ -5,7 +5,7 @@ import hashlib
 from fastapi import HTTPException, UploadFile
 from fastapi.responses import FileResponse
 
-from data.config_loader import config
+from core.config_loader import config
 from data.document import read_documents, write_documents, export_document
 from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter
 

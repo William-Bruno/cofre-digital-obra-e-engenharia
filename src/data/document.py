@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 import csv
 from fastapi import HTTPException
-from data.config_loader import config
+from core.logging_config import config
 from model.document import Documents
 
 BD_PATH = Path(config["paths"]["bd_path"])

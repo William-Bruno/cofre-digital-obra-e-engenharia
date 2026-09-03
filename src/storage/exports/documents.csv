@@ -1,2 +1,4 @@
 categoria,descricao,obra,etapa,responsavel_tecnico,versao,data,id,nome_original,nome_armazenado,extensao,tipo_mime,tamanho,sha256,data_upload
-string,string,string,string,string,3.0,string,1,Copilot_20260831_093333.png,1_20260902110659_Copilot_20260831_093333.png,png,image/png,913542,73067045d201ed473fd4e2dd5043268af6374e7d46317a5e0dd387f6d3ac01e7,2026-09-02 11-06-59
+Contrato,Contrato firmado para execução de obra,Obra A,Fundação,William,1.0,2026-09-02,2,Contrato Formal.txt,2_20260902221402_Contrato Formal.txt,txt,text/plain,0,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2026-09-02 22-14-02
+Projeto,Desenho técnico de estrutura,Obra A,Estrutura,William,1.0,2026-09-03,3,ALECE - GABARITO.pdf,3_20260902221455_ALECE - GABARITO.pdf,pdf,application/pdf,588376,1a8d8d0adb5b90b8c22b6a6eb10e44136fe19c75acaa36e91011aff5f83f0f5a,2026-09-02 22-14-55
+Planejamento,Planejamento de etapas da obra,Obra B,Acabamento,Wellington,1.1,2026-09-04,4,ALECE - PROVA - TECNICO LEGISLATIVO.pdf,4_20260902221610_ALECE - PROVA - TECNICO LEGISLATIVO.pdf,pdf,application/pdf,1291096,ee72589fd363ff224374fec04afa0cba0f10099e69197eada21fdc46fdf81d66,2026-09-02 22-16-10

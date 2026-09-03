@@ -1,0 +1,61 @@
+2026-09-03 16:26:34,348 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:26:34,435 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:29:55,883 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:29:55,985 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:33:59,118 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:33:59,210 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:34:14,876 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:34:14,977 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:35:16,777 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:35:16,865 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:36:37,357 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:36:37,446 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:39:11,649 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:39:11,766 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:42:42,748 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:42:42,834 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:43:05,020 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 16:43:05,118 - cofre_digital - INFO - API Cofre digital iniciada.
+2026-09-03 16:43:19,622 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:06:59,652 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:07:27,559 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:08:33,763 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:08:41,817 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:09:51,247 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:11:13,612 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:11:19,139 - cofre_digital - INFO - GET /documents status=200 0.14870869999867864
+2026-09-03 17:11:38,557 - cofre_digital - INFO - GET /documents/2 status=200 0.02773239999078214
+2026-09-03 17:11:51,331 - cofre_digital - INFO - GET /documents/export/csv status=200 0.022707700001774356
+2026-09-03 17:13:46,442 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:14:27,063 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:14:27,144 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:16:36,358 - cofre_digital - INFO - GET /documents/7 status=404
+2026-09-03 17:17:29,536 - cofre_digital - INFO - GET /documents/8/download status=404
+2026-09-03 17:18:37,166 - cofre_digital - INFO - POST /documents status=413
+2026-09-03 17:28:03,822 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:28:03,909 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:29:41,537 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:29:41,624 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:30:41,601 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:30:41,792 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:30:43,373 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:30:43,453 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:31:34,544 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:31:34,622 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:34:53,884 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:34:54,046 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:34:58,523 - cofre_digital - ERROR - GET /docs erro interno: '_StreamingResponse' object has no attribute 'status'
+2026-09-03 17:36:07,349 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:36:07,510 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:36:10,544 - cofre_digital - INFO - GET /docs status=200
+2026-09-03 17:36:10,817 - cofre_digital - INFO - GET /openapi.json status=200
+2026-09-03 17:36:25,884 - cofre_digital - WARNING - GET /documents/999 status=404
+2026-09-03 17:38:04,248 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:38:04,422 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:38:14,699 - cofre_digital - ERROR - GET /documents/999 erro interno: division by zero
+2026-09-03 17:38:59,860 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:39:00,063 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:39:04,586 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:39:04,689 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 17:39:52,284 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 17:39:52,390 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
