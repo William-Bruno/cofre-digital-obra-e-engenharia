@@ -2,6 +2,14 @@
 
 API desenvolvida em FastAPI
 
+## Equipe
+    William 
+    Wellington
+    Henrique
+
+## Tema
+    Cofre de Documentos de Obra e Engenharia
+
 ## Estrutura
     src/
     ├── config/        # Configurações Gerais
