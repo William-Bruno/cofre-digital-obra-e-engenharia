@@ -12,10 +12,10 @@ from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFi
 
 FILES_PATH = Path(config["paths"]["files_path"])
 
-CHUNK_SIZE = config["settings"]["chunk_size"]
-TIMESTAMP_FORMAT = config["settings"]["timestamp_format"]
-UPLOAD_DATE_FORMATE = config["settings"]["upload_date_format"]
-MAX_UPLOAD_SIZE = config["settings"]["max_upload_size"]
+CHUNK_SIZE = config["settings"]["upload"]["chunk_size"]
+TIMESTAMP_FORMAT = config["settings"]["document"]["timestamp_format"]
+UPLOAD_DATE_FORMATE = config["settings"]["document"]["upload_date_format"]
+MAX_UPLOAD_SIZE = config["settings"]["upload"]["max_upload_size"]
 
 
 def calculate_sha256(file_path: Path) -> str:
