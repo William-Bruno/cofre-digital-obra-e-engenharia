@@ -7,10 +7,10 @@ paths:
 
 settings:
   upload:
-    upload_date_format: "%Y-%m-%d %H-%M-%S"
     max_upload_size: 10485760
-  document:
     chunk_size: 1048576
+  document:
+    upload_date_format: "%Y-%m-%d %H-%M-%S"
     timestamp_format: "%Y%m%d%H%M%S"
   hash:
     algorithm: "sha256"

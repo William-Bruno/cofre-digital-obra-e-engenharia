@@ -73,3 +73,53 @@
 2026-09-03 17:46:08,603 - cofre_digital - INFO - Sistema de logging inicializado.
 2026-09-03 17:46:08,765 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
 2026-09-03 17:46:49,479 - cofre_digital - WARNING - POST /documents status=413
+2026-09-03 18:50:15,228 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 18:50:47,496 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 18:56:35,732 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 18:56:52,748 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:04:53,514 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:15:49,604 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:17:17,418 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:19:29,519 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:19:29,657 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 19:19:34,840 - cofre_digital - INFO - GET /docs status=200
+2026-09-03 19:19:35,714 - cofre_digital - INFO - GET /openapi.json status=200
+2026-09-03 19:19:43,264 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 19:19:55,425 - cofre_digital - INFO - GET /documents status=200
+2026-09-03 19:20:20,043 - cofre_digital - INFO - PATCH /documents/2 status=200
+2026-09-03 19:20:42,334 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:22:59,973 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:24:39,258 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:26:19,924 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:27:37,514 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:29:37,293 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:29:55,409 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:30:48,904 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:30:48,989 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 19:31:42,260 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:31:42,470 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 19:34:31,390 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:34:31,725 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 19:34:34,970 - cofre_digital - INFO - GET /docs status=200
+2026-09-03 19:34:35,401 - cofre_digital - INFO - GET /openapi.json status=200
+2026-09-03 19:34:48,552 - cofre_digital - ERROR - GET /documents/statistics erro interno: 4 validation errors for Statistics
+extensao
+  Field required [type=missing, input_value={'total_documents': 3, 'e...m': 2, 'Wellington': 1}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+categoria
+  Field required [type=missing, input_value={'total_documents': 3, 'e...m': 2, 'Wellington': 1}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+etapa
+  Field required [type=missing, input_value={'total_documents': 3, 'e...m': 2, 'Wellington': 1}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+responsavel_tecnico
+  Field required [type=missing, input_value={'total_documents': 3, 'e...m': 2, 'Wellington': 1}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+2026-09-03 19:37:19,646 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:37:19,747 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 19:37:23,294 - cofre_digital - INFO - GET /documents/statistics status=200
+2026-09-03 19:41:54,862 - cofre_digital - INFO - POST /documents status=201
+2026-09-03 19:42:08,535 - cofre_digital - INFO - GET /documents/statistics status=200
+2026-09-03 19:43:22,730 - cofre_digital - INFO - Sistema de logging inicializado.
+2026-09-03 19:43:22,827 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 19:44:03,503 - cofre_digital - INFO - API de Obras e Engenharia funcionando!

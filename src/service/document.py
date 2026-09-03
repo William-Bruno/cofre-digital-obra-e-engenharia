@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse
 
 from core.config_loader import config
 from data.document import read_documents, write_documents, export_document
-from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter
+from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics
 
 
 FILES_PATH = Path(config["paths"]["files_path"])
@@ -174,3 +174,38 @@ def export_document_csv() -> dict:
         "message": "Exportação realizaca com sucesso!",
         "arquivo": str(export_path)
     }
+
+def statistics_document() -> Statistics:
+    documents = read_documents()
+
+    total_documents = len(documents)
+    espaco_total_bytes = 0
+    por_extensao = {}
+    por_categoria = {}
+    por_etapa = {}
+    por_responsavel_tecnico = {}
+
+
+    for document in documents:
+        espaco_total_bytes += document["tamanho"]
+        extensao = document["extensao"]
+        por_extensao[extensao] = por_extensao.get(extensao,0) + 1
+        categoria = document["categoria"]
+        por_categoria[categoria] = por_categoria.get(categoria, 0) + 1
+        etapa = document["etapa"]
+        por_etapa[etapa] = por_etapa.get(etapa, 0) + 1
+        responsavel_tecnico = document["responsavel_tecnico"]
+        por_responsavel_tecnico[responsavel_tecnico] = por_responsavel_tecnico.get(responsavel_tecnico, 0) + 1
+
+    estatisticas = {
+        "total_documents" : total_documents,
+        "espaco_total_bytes" : espaco_total_bytes,
+        "por_extensao" : por_extensao,
+        "por_categoria": por_categoria,
+        "por_etapa": por_etapa,
+        "por_responsavel_tecnico": por_responsavel_tecnico
+    }
+
+    return Statistics(**estatisticas)
+
+

@@ -12,4 +12,3 @@ logging_config= config["logging"]
 logging_config["handlers"]["file"]["filename"] = str(LOG_PATH)
 logging.config.dictConfig(logging_config)
 logger = logging.getLogger("cofre_digital")
-logger.info("Sistema de logging inicializado.")

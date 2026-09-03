@@ -1,8 +1,8 @@
 from typing import Annotated
 from fastapi import APIRouter, UploadFile, status, File, Depends
 from fastapi.responses import FileResponse
-from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter
-from service.document import (create_document, update_document, delete_document, download_document, export_document_csv, get_document_id, filter_document)
+from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics
+from service.document import (create_document, update_document, delete_document, download_document, export_document_csv, get_document_id, filter_document, statistics_document)
 
 
 router = APIRouter(prefix= "/documents")
@@ -15,6 +15,10 @@ async def post_documents(document: Annotated[DocumentCreate, Depends(DocumentCre
 def get_documents(categoria:str | None = None, obra:str | None = None, etapa:str|None=None,):
         filters = DocumentFilter(categoria=categoria, obra=obra,etapa=etapa)
         return filter_document(filters)
+
+@router.get("/statistics", status_code=status.HTTP_200_OK, response_model=Statistics)
+def statistics_documents():
+     return statistics_document()
 
 @router.get("/{id}", status_code=status.HTTP_200_OK, response_model=Documents)
 def get_documents_id(id: int):
@@ -35,4 +39,5 @@ def download_documents(id: int) -> FileResponse:
 @router.get("/export/csv", status_code=status.HTTP_200_OK)
 def export_documents():
     return export_document_csv()
+
 

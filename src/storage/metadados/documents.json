@@ -9,11 +9,11 @@
     "data": "2026-09-03",
     "id": 2,
     "nome_original": "Contrato Formal.txt",
-    "nome_armazenado": "2_20260902221402_Contrato Formal.txt",
+    "nome_armazenado": "2_20260903192020_Contrato Formal.txt",
     "extensao": "txt",
     "tipo_mime": "text/plain",
-    "tamanho": 0,
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tamanho": 23,
+    "sha256": "6b41d62b67fe8202244253c32bbc1977667f7ffdc48e51d0e8038d89a48aee7b",
     "data_upload": "2026-09-02 22-14-02"
   },
   {
@@ -49,5 +49,22 @@
     "tamanho": 1291096,
     "sha256": "ee72589fd363ff224374fec04afa0cba0f10099e69197eada21fdc46fdf81d66",
     "data_upload": "2026-09-02 22-16-10"
+  },
+  {
+    "categoria": "Trabalho",
+    "descricao": "Descricao do trabalho pratico",
+    "obra": "Criação",
+    "etapa": "Inicial",
+    "responsavel_tecnico": "Henrique",
+    "versao": 1.0,
+    "data": "2026-09-03",
+    "id": 5,
+    "nome_original": "Trabalho Prático 1 - Desenvolvimento de um Cofre Digital de Arquivos com FastAPI.pdf",
+    "nome_armazenado": "5_20260903194154_Trabalho Prático 1 - Desenvolvimento de um Cofre Digital de Arquivos com FastAPI.pdf",
+    "extensao": "pdf",
+    "tipo_mime": "application/pdf",
+    "tamanho": 710843,
+    "sha256": "1f23660fa95f43c7dc33eeca88adb6b673240371f8a8d71df72cf25d955e3443",
+    "data_upload": "2026-09-03 19-41-54"
   }
 ]

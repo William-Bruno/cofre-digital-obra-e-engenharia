@@ -87,3 +87,18 @@ class DocumentFilter(BaseModel):
     categoria: str | None = None
     obra: str | None = None
     etapa: str | None = None
+
+class Statistics(BaseModel):
+    total_documents: int
+    espaco_total_bytes: int
+    por_extensao: dict[str, int]
+    por_categoria: dict[str, int]
+    por_etapa: dict[str, int]
+    por_responsavel_tecnico: dict[str, int]
+
+class Integridade(BaseModel):
+    id:int
+    nome:str
+    hash_original: str
+    hash_atual:str
+    integro: bool
