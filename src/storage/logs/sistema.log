@@ -123,3 +123,19 @@ responsavel_tecnico
 2026-09-03 19:43:22,730 - cofre_digital - INFO - Sistema de logging inicializado.
 2026-09-03 19:43:22,827 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
 2026-09-03 19:44:03,503 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:09:11,362 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:09:15,400 - cofre_digital - INFO - GET /docs status=200
+2026-09-03 20:09:15,887 - cofre_digital - INFO - GET /openapi.json status=200
+2026-09-03 20:09:25,734 - cofre_digital - WARNING - GET /documents/1/integridade status=404
+2026-09-03 20:09:33,692 - cofre_digital - INFO - GET /documents/2/integridade status=200
+2026-09-03 20:10:56,113 - cofre_digital - INFO - GET /documents/2/integridade status=200
+2026-09-03 20:11:09,374 - cofre_digital - INFO - GET /documents/3/integridade status=200
+2026-09-03 20:12:01,757 - cofre_digital - ERROR - GET /documents/2/integridade status=500
+2026-09-03 20:12:50,077 - cofre_digital - INFO - GET /documents/2/integridade status=200
+2026-09-03 20:14:50,131 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:14:53,461 - cofre_digital - ERROR - GET /documents/2/integridade status=500
+2026-09-03 20:15:00,263 - cofre_digital - ERROR - GET /documents/2/integridade status=500
+2026-09-03 20:15:15,336 - cofre_digital - ERROR - GET /documents/3/integridade status=500
+2026-09-03 20:15:49,499 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-03 20:15:49,779 - cofre_digital - INFO - GET /documents/3/integridade status=200
+2026-09-03 20:15:53,047 - cofre_digital - INFO - GET /documents/2/integridade status=200

@@ -1,8 +1,8 @@
 from typing import Annotated
 from fastapi import APIRouter, UploadFile, status, File, Depends
 from fastapi.responses import FileResponse
-from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics
-from service.document import (create_document, update_document, delete_document, download_document, export_document_csv, get_document_id, filter_document, statistics_document)
+from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade
+from service.document import (create_document, update_document, delete_document, download_document, export_document_csv, get_document_id, filter_document, statistics_document, verificar_integridade)
 
 
 router = APIRouter(prefix= "/documents")
@@ -35,6 +35,10 @@ def delete_documents(id:int):
 @router.get("/{id}/download", status_code=status.HTTP_200_OK)
 def download_documents(id: int) -> FileResponse:
     return download_document(id)
+
+@router.get("/{id}/integridade", status_code=status.HTTP_200_OK, response_model=Integridade)
+def verificar_document(id: int) -> Integridade:
+     return verificar_integridade(id)
 
 @router.get("/export/csv", status_code=status.HTTP_200_OK)
 def export_documents():

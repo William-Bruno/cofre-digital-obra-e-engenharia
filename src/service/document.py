@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse
 
 from core.config_loader import config
 from data.document import read_documents, write_documents, export_document
-from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics
+from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade
 
 
 FILES_PATH = Path(config["paths"]["files_path"])
@@ -17,16 +17,18 @@ TIMESTAMP_FORMAT = config["settings"]["document"]["timestamp_format"]
 UPLOAD_DATE_FORMATE = config["settings"]["document"]["upload_date_format"]
 MAX_UPLOAD_SIZE = config["settings"]["upload"]["max_upload_size"]
 
+ALGORITHM_TYPE = config["settings"]["hash"]["algorithm"]
 
-def calculate_sha256(file_path: Path) -> str:
-    sha256 = hashlib.sha256()
+
+def calculate_hash(file_path: Path) -> str:
+    hash_agorithm = hashlib.new(ALGORITHM_TYPE)
     try:
-        with open(file_path, "rb") as file:
-            while chunk := file.read(1024 * 1024):
-                sha256.update(chunk)
-        return sha256.hexdigest()
+        with open(file_path, "rb") as arquivo:
+            while chunk := arquivo.read(CHUNK_SIZE):
+                hash_agorithm.update(chunk)
+        return hash_agorithm.hexdigest()
     except(OSError, IOError) as error:
-        raise HTTPException(status_code=500, detail=f"Problema ao calcular o hash256 {error}")
+        raise HTTPException(status_code=500, detail=f"Problema ao calcular o hash {error}")
 
 
 
@@ -207,5 +209,21 @@ def statistics_document() -> Statistics:
     }
 
     return Statistics(**estatisticas)
+
+def verificar_integridade(id: int) -> Integridade:
+    document = get_document_id(id)
+    nome_armazenado = document.nome_armazenado
+    arquivo_local = FILES_PATH / nome_armazenado
+    hash_original = document.sha256
+    hash_atual = calculate_hash(arquivo_local)
+    integro = hash_original == hash_atual
+
+    return Integridade(
+        id = document.id,
+        nome = document.nome_original,
+        hash_original = hash_original,
+        hash_atual = hash_atual,
+        integro = integro
+)
 
 
