@@ -83,3 +83,7 @@ class DocumentUpdate(BaseModel):
             data=data,
         )
 
+class DocumentFilter(BaseModel):
+    categoria: str | None = None
+    obra: str | None = None
+    etapa: str | None = None

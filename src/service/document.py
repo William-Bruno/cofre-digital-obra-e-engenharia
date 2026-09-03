@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse
 
 from data.config_loader import config
 from data.document import read_documents, write_documents, export_document
-from src.model.document import Documents, DocumentCreate, DocumentUpdate
+from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter
 
 
 FILES_PATH = Path(config["paths"]["files_path"])
@@ -38,7 +38,7 @@ async def save_documents(arquivo: UploadFile, document_id: int,) -> dict:
     FILES_PATH.mkdir(parents=True, exist_ok=True)
     nome_original = Path(arquivo.filename).name
     extensao = Path(nome_original).suffix.lower().replace(".", "")
-    mime_type = arquivo.content_type or mimetypes.guess_type(nome_original[0]) or "application/octet-stream"
+    mime_type = arquivo.content_type or mimetypes.guess_type(nome_original)[0] or "application/octet-stream"
     timestamp = datetime.now().strftime(TIMESTAMP_FORMAT)
     nome_armazenado = f"{document_id}_{timestamp}_{nome_original}"
     arquivo_local = FILES_PATH / nome_armazenado
@@ -48,6 +48,8 @@ async def save_documents(arquivo: UploadFile, document_id: int,) -> dict:
         while chunk := await arquivo.read(CHUNK_SIZE):
             tamanho_arquivo += len(chunk)
             if tamanho_arquivo > MAX_UPLOAD_SIZE:
+                destino.close()
+                arquivo_local.unlink(missing_ok=True)
                 raise HTTPException(status_code=413, detail="Arquivo enviado é muito grande: MAX 10Mb")
             destino.write(chunk)
     # tamanho = arquivo_local.stat().st_size
@@ -106,7 +108,7 @@ async def update_document(id: int, document:DocumentUpdate, arquivo: UploadFile 
         return Documents(**document_update)
     raise HTTPException(status_code=404, detail=f"Documento com identificador {id} não foi encontrado.")
 
-def delete_document(id: int) -> FileResponse:
+def delete_document(id: int) -> Documents:
     documents = read_documents()
     for indice, document in enumerate(documents):
         if document.get("id") != id:
@@ -121,6 +123,13 @@ def delete_document(id: int) -> FileResponse:
                 arquivo_local.unlink()
         return Documents(**deleted_document)
     raise HTTPException(status_code=404, detail="Documento não encontrado!")
+
+def get_document_id(id: int) -> Documents:
+    documents = read_documents()
+    for document in documents:
+        if document.get("id") == id:
+            return Documents(**document)
+    raise HTTPException(status_code=404, detail="Documento não foi encontrado, verifique!")
 
 def download_document(id: int) -> FileResponse:
     documents = read_documents()
@@ -138,6 +147,24 @@ def download_document(id: int) -> FileResponse:
                 filename=document.get("nome_original", nome_arquivo),
                 media_type=document.get("tipo_mime", "application/octet-stream"),)
     raise HTTPException(status_code=404, detail="Documento não encontrado")
+
+def filter_document(filters: DocumentFilter) -> list[Documents]:
+    documents = read_documents()
+
+    resultado = []
+
+    for document in documents:
+        if filters.categoria is not None:
+            if document.get("categoria").strip().lower() != filters.categoria.strip().lower():
+                continue
+        if filters.obra is not None:
+            if document.get("obra").strip().lower() != filters.obra.strip().lower():
+                continue
+        if filters.etapa is not None:
+            if document.get("etapa").strip().lower() != filters.etapa.strip().lower():
+                continue
+        resultado.append(Documents(**document))
+    return resultado
 
 def export_document_csv() -> dict:
     documents = read_documents()
