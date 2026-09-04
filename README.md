@@ -1,4 +1,4 @@
-# Cofre Digital de Documentos de Obras e Engenharia
+# Cofre de Documentos de Obras e Engenharia
 
 API desenvolvida em FastAPI
 
