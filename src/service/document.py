@@ -2,7 +2,7 @@ from pathlib import Path
 from datetime import datetime
 import mimetypes
 import hashlib
-from fastapi import HTTPException, UploadFile
+from fastapi import HTTPException, UploadFile, status
 from fastapi.responses import FileResponse
 
 from core.config_loader import config
@@ -28,14 +28,14 @@ def calculate_hash(file_path: Path) -> str:
                 hash_agorithm.update(chunk)
         return hash_agorithm.hexdigest()
     except(OSError, IOError) as error:
-        raise HTTPException(status_code=500, detail=f"Problema ao calcular o hash {error}")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Problema ao calcular o hash {error}")
 
 
 
 async def save_documents(arquivo: UploadFile, document_id: int,) -> dict:
 
     if not arquivo.filename:
-        raise HTTPException(status_code=400, detail="Arquivo não possui nome")
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Arquivo não possui nome")
 
     FILES_PATH.mkdir(parents=True, exist_ok=True)
     nome_original = Path(arquivo.filename).name
@@ -51,7 +51,7 @@ async def save_documents(arquivo: UploadFile, document_id: int,) -> dict:
             while chunk := await arquivo.read(CHUNK_SIZE):
                 tamanho_arquivo += len(chunk)
                 if tamanho_arquivo > MAX_UPLOAD_SIZE:
-                    raise HTTPException(status_code=413, detail="Arquivo enviado é muito grande: MAX 10Mb")
+                    raise HTTPException(status_code=status.HTTP_413_CONTENT_TOO_LARGE, detail="Arquivo enviado é muito grande: MAX 10Mb")
                 destino.write(chunk)
     except HTTPException:
         arquivo_local.unlink(missing_ok=True)
@@ -109,7 +109,7 @@ async def update_document(id: int, document:DocumentUpdate, arquivo: UploadFile 
         documents[indice] = document_update
         write_documents(documents)
         return Documents(**document_update)
-    raise HTTPException(status_code=404, detail=f"Documento com identificador {id} não foi encontrado.")
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Documento com identificador {id} não foi encontrado.")
 
 def delete_document(id: int) -> Documents:
     documents = read_documents()
@@ -125,14 +125,14 @@ def delete_document(id: int) -> Documents:
             if arquivo_local.exists():
                 arquivo_local.unlink()
         return Documents(**deleted_document)
-    raise HTTPException(status_code=404, detail="Documento não encontrado!")
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Documento não encontrado!")
 
 def get_document_id(id: int) -> Documents:
     documents = read_documents()
     for document in documents:
         if document.get("id") == id:
             return Documents(**document)
-    raise HTTPException(status_code=404, detail="Documento não foi encontrado, verifique!")
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Documento não foi encontrado, verifique!")
 
 def download_document(id: int) -> FileResponse:
     documents = read_documents()
@@ -141,15 +141,15 @@ def download_document(id: int) -> FileResponse:
         if document.get("id") == id:
             nome_arquivo = document.get("nome_armazenado")
             if not nome_arquivo:
-                raise HTTPException(status_code=404, detail="Nome do arquivo não encontrado no storage")
+                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Nome do arquivo não encontrado no storage")
             arquivo_local = FILES_PATH / nome_arquivo
             if not arquivo_local.exists():
-                raise HTTPException(status_code=404, detail="Arquivo fisico não encontrado no storage")
+                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Arquivo fisico não encontrado no storage")
             return FileResponse(
                 path=arquivo_local, 
                 filename=document.get("nome_original", nome_arquivo),
                 media_type=document.get("tipo_mime", "application/octet-stream"),)
-    raise HTTPException(status_code=404, detail="Documento não encontrado")
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Documento não encontrado")
 
 def filter_document(filters: DocumentFilter) -> list[Documents]:
     documents = read_documents()
@@ -225,7 +225,6 @@ def verificar_integridade(id: int) -> Integridade:
         hash_atual = hash_atual,
         integro = integro
 )
-
 
 def verificar_integridade_geral() -> IntegridadeGeral:
     documents = read_documents()

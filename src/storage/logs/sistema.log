@@ -201,3 +201,26 @@ responsavel_tecnico
 2026-09-03 20:43:19,560 - cofre_digital - INFO - GET /documents/integridade status=200
 2026-09-03 20:43:29,494 - cofre_digital - INFO - GET /documents/export/csv status=200
 2026-09-03 20:43:47,109 - cofre_digital - INFO - GET /documents/7/integridade status=200
+2026-09-04 08:02:29,480 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-04 08:03:12,350 - cofre_digital - INFO - GET /documents status=200
+2026-09-04 08:03:28,003 - cofre_digital - INFO - GET /documents status=200
+2026-09-05 19:11:21,314 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-05 19:12:05,600 - cofre_digital - INFO - GET /docs status=200
+2026-09-05 19:12:06,036 - cofre_digital - INFO - GET /openapi.json status=200
+2026-09-05 19:13:36,424 - cofre_digital - INFO - GET /documents status=200
+2026-09-05 19:13:54,386 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-05 19:15:12,105 - cofre_digital - INFO - POST /documents status=201
+2026-09-05 19:15:39,086 - cofre_digital - INFO - GET /documents/8/integridade status=200
+2026-09-05 19:16:45,464 - cofre_digital - INFO - GET /documents/8/integridade status=200
+2026-09-05 19:16:57,112 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-05 19:17:39,765 - cofre_digital - INFO - GET /documents/statistics status=200
+2026-09-05 19:18:48,613 - cofre_digital - INFO - GET /documents status=200
+2026-09-05 19:19:01,129 - cofre_digital - INFO - GET /documents status=200
+2026-09-05 19:19:07,357 - cofre_digital - INFO - GET /documents status=200
+2026-09-05 19:19:17,006 - cofre_digital - INFO - GET /documents/8/download status=200
+2026-09-05 19:19:28,792 - cofre_digital - INFO - GET /documents/export/csv status=200
+2026-09-05 19:19:52,460 - cofre_digital - WARNING - GET /documents/10/download status=404
+2026-09-05 19:22:20,195 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-05 19:22:55,975 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-05 19:26:52,359 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-05 19:29:47,691 - cofre_digital - INFO - API de Obras e Engenharia funcionando!

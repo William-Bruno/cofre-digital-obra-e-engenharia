@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from core.logging_config import logger
 from core.logging_middleware import logging_middleware
-from web import document
+from routes import document
 
 app = FastAPI()
 
