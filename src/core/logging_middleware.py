@@ -1,4 +1,5 @@
 import logging
+from error import Missing, FileTooLarge, InvalidFileName
 from fastapi import Request
 
 logger = logging.getLogger("cofre_digital")
@@ -16,6 +17,9 @@ async def logging_middleware(request: Request, call_next):
             logger.info(mensagem)
 
         return response
+    except (Missing, FileTooLarge, InvalidFileName) as erro:
+        logger.warning(f"{request.method} {request.url.path} - Erro de aplicação: {erro}")
+        raise    
     except Exception as error:
-        logger.error(f"{request.method} {request.url.path} erro interno: {error}")
+        logger.error(f"{request.method} {request.url.path} - Falha interna: {error}")
         raise

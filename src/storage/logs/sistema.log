@@ -224,3 +224,35 @@ responsavel_tecnico
 2026-09-05 19:22:55,975 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
 2026-09-05 19:26:52,359 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
 2026-09-05 19:29:47,691 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:07:50,932 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:07:57,631 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:08:38,016 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:09:00,706 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:11:17,921 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:12:39,931 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:13:53,115 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:21:16,176 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:22:51,879 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:27:39,612 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:29:31,847 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:31:06,634 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:34:01,994 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:40:05,461 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:41:06,781 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 10:59:17,040 - cofre_digital - INFO - GET /docs status=200
+2026-09-06 10:59:17,497 - cofre_digital - INFO - GET /openapi.json status=200
+2026-09-06 10:59:24,818 - cofre_digital - INFO - GET /documents status=200
+2026-09-06 10:59:29,364 - cofre_digital - INFO - GET /documents status=200
+2026-09-06 10:59:39,897 - cofre_digital - ERROR - GET /documents/70 erro interno: Documento não foi encontrado!
+2026-09-06 11:04:15,347 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 11:04:33,675 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 11:04:35,576 - cofre_digital - WARNING - GET /documents/70 erro interno: Documento não foi encontrado!
+2026-09-06 11:06:04,904 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-06 11:06:15,533 - cofre_digital - WARNING - GET /documents/70 - Erro de aplicação: Documento não foi encontrado!
+2026-09-06 11:06:26,690 - cofre_digital - WARNING - DELETE /documents/80 - Erro de aplicação: Documento não encontrado!
+2026-09-06 11:06:36,421 - cofre_digital - WARNING - GET /documents/90/download - Erro de aplicação: Documento não encontrado
+2026-09-06 11:06:47,229 - cofre_digital - WARNING - GET /documents/80/integridade - Erro de aplicação: Documento não foi encontrado!
+2026-09-06 11:06:55,703 - cofre_digital - INFO - GET /documents/export/csv status=200
+2026-09-06 11:07:43,754 - cofre_digital - WARNING - PATCH /documents/66 - Erro de aplicação: Documento com identificador 66 não foi encontrado.
+2026-09-06 11:07:54,952 - cofre_digital - INFO - GET /documents/integridade status=200
+2026-09-06 11:08:01,607 - cofre_digital - INFO - GET /documents/statistics status=200
