@@ -4,6 +4,7 @@ paths:
   files_path: "src/storage/files"
   log_path: "src/storage/logs/sistema.log"
   backup_path: "src/storage/backups"
+  storage_path: "src/storage"
 
 settings:
   upload:

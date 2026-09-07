@@ -2,11 +2,11 @@ from pathlib import Path
 from datetime import datetime
 import mimetypes
 import hashlib
-from fastapi import HTTPException, UploadFile, status
+from fastapi import UploadFile
 from fastapi.responses import FileResponse
 
 from core.config_loader import config
-from data.document import read_documents, write_documents, export_document
+from data.document import read_documents, write_documents, export_document, create_backup
 from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade, IntegridadeGeral
 from error import Missing, ServerError, FileTooLarge, InvalidFileName
 
@@ -254,4 +254,5 @@ def verificar_integridade_geral() -> IntegridadeGeral:
     )
 
 
-
+def gerar_backup():
+    return create_backup()

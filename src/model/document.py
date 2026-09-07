@@ -99,7 +99,7 @@ class Statistics(BaseModel):
 class Integridade(BaseModel):
     id:int
     nome:str
-    hash_original: str
+    hash_original: str 
     hash_atual:str
     integro: bool
 
