@@ -30,7 +30,7 @@ def write_documents(document: list[dict]):
 
 def export_document(documents: list[dict]) -> Path:
     if not documents:
-        raise Missing("Nenhum documento foi encontrado")
+        raise Missing("Não existe nenhum doumento na base de dados")
     EXPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     cabecalhos = list(Documents.model_fields.keys())
     try:

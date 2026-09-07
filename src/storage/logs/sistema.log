@@ -346,3 +346,21 @@ responsavel_tecnico
 2026-09-07 12:09:14,353 - cofre_digital - INFO - GET /openapi.json status=200
 2026-09-07 12:09:19,585 - cofre_digital - INFO - POST /backup status=201
 2026-09-07 12:09:25,466 - cofre_digital - INFO - GET /backup status=200
+2026-09-07 14:28:47,630 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-07 14:29:22,804 - cofre_digital - WARNING - DELETE /documents/9 - Erro de aplicação: Documento não encontrado!
+2026-09-07 14:29:29,324 - cofre_digital - WARNING - DELETE /documents/10 - Erro de aplicação: Documento não encontrado!
+2026-09-07 14:29:59,147 - cofre_digital - INFO - DELETE /documents/2 status=200
+2026-09-07 14:30:01,801 - cofre_digital - INFO - DELETE /documents/3 status=200
+2026-09-07 14:30:04,380 - cofre_digital - INFO - DELETE /documents/4 status=200
+2026-09-07 14:30:06,959 - cofre_digital - INFO - DELETE /documents/5 status=200
+2026-09-07 14:30:10,201 - cofre_digital - INFO - DELETE /documents/7 status=200
+2026-09-07 14:30:13,868 - cofre_digital - INFO - DELETE /documents/8 status=200
+2026-09-07 14:30:25,800 - cofre_digital - INFO - DELETE /documents/6 status=200
+2026-09-07 14:30:42,911 - cofre_digital - WARNING - GET /documents/export/csv - Erro de aplicação: Nenhum documento foi encontrado
+2026-09-07 14:30:57,766 - cofre_digital - WARNING - GET /documents/export/csv - Erro de aplicação: Nenhum documento foi encontrado
+2026-09-07 14:31:03,972 - cofre_digital - WARNING - GET /documents/export/csv - Erro de aplicação: Nenhum documento foi encontrado
+2026-09-07 14:31:48,599 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-07 14:31:50,240 - cofre_digital - WARNING - GET /documents/export/csv - Erro de aplicação: Não existe nenhum doumento na sua base de dados
+2026-09-07 14:31:59,989 - cofre_digital - INFO - API de Obras e Engenharia funcionando!
+2026-09-07 14:32:00,884 - cofre_digital - WARNING - GET /documents/export/csv - Erro de aplicação: Não existe nenhum doumento na base de dados
+2026-09-07 14:32:06,860 - cofre_digital - INFO - GET /backup status=200
