@@ -2,7 +2,7 @@ from typing import Annotated
 from fastapi import APIRouter, UploadFile, status, File, Depends
 from fastapi.responses import FileResponse
 from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade, IntegridadeGeral
-from service.document import (create_document, update_document, delete_document, download_document, export_document_csv, get_document_id, filter_document, statistics_document, verificar_integridade, verificar_integridade_geral, gerar_backup)
+from service.document import (create_document, update_document, delete_document, download_document, export_document_csv, get_document_id, filter_document, statistics_document, verificar_integridade, verificar_integridade_geral)
 
 
 router = APIRouter(prefix= "/documents")
@@ -48,9 +48,6 @@ def verificar_document(id: int) -> Integridade:
 def export_documents():
     return export_document_csv()
 
-@router.post("/backups", status_code=status.HTTP_201_CREATED)
-def create_backups():
-     return gerar_backup()
      
 
 

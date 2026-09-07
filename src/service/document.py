@@ -6,7 +6,7 @@ from fastapi import UploadFile
 from fastapi.responses import FileResponse
 
 from core.config_loader import config
-from data.document import read_documents, write_documents, export_document, create_backup
+from data.document import read_documents, write_documents, export_document
 from model.document import Documents, DocumentCreate, DocumentUpdate, DocumentFilter, Statistics, Integridade, IntegridadeGeral
 from error import Missing, ServerError, FileTooLarge, InvalidFileName
 
@@ -253,6 +253,3 @@ def verificar_integridade_geral() -> IntegridadeGeral:
         arquivos_nao_localizados=arquivos_nao_localizados
     )
 
-
-def gerar_backup():
-    return create_backup()
